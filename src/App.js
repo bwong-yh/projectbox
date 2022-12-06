@@ -1,7 +1,24 @@
-import './App.css';
+import { Box, Button, CssBaseline, Toolbar, useTheme } from '@mui/material';
+import Navbar from './components/Navbar';
 
 function App() {
-  return <div className='App'></div>;
+  const theme = useTheme();
+
+  return (
+    <Box>
+      <CssBaseline />
+
+      <Navbar />
+      <Toolbar />
+
+      <Box
+        component='main'
+        sx={{ backgroundColor: theme.palette.primary.light }}
+      >
+        <Button variant='contained'>Test</Button>
+      </Box>
+    </Box>
+  );
 }
 
 export default App;

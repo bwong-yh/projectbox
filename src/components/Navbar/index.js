@@ -13,26 +13,17 @@ const Navbar = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
-  const MyNavButton = styled(Button)(() => ({
-    color: '#000',
-    fontSize: '1rem',
-    justifyContent: matches ? 'flex-end' : 'center',
-    marginLeft: matches ? '-1rem' : '1rem',
-    padding: matches ? 0 : 'inherit',
-    '&:hover': {
-      fontWeight: 700,
-    },
-  }));
-
   return (
-    <AppBar elevation={0}>
-      <Toolbar>
-        {matches ? (
-          <NavbarMobile MyNavButton={MyNavButton} />
-        ) : (
-          <NavbarDesktop MyNavButton={MyNavButton} />
-        )}
-      </Toolbar>
+    <AppBar
+      elevation={0}
+      component='nav'
+      position='fixed'
+      sx={{
+        backgroundColor: theme.palette.primary.dark,
+        zIndex: theme.zIndex.drawer + 1,
+      }}
+    >
+      <Toolbar>{matches ? <NavbarMobile /> : <NavbarDesktop />}</Toolbar>
     </AppBar>
   );
 };

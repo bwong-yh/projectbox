@@ -14,12 +14,14 @@ const colors = {
   },
 };
 
+const drawerWidth = 240;
+
 const theme = createTheme({
   palette: {
     primary: {
       light: colors.gray[100],
       main: colors.gray[300],
-      dark: colors.gray[500],
+      dark: colors.gray[600],
     },
   },
   components: {
@@ -27,6 +29,20 @@ const theme = createTheme({
       defaultProps: {
         disableElevation: true,
         disableRipple: true,
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          '&:hover': { backgroundColor: 'transparent' },
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          width: drawerWidth,
+        },
       },
     },
   },

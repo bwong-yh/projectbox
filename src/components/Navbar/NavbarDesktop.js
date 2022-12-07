@@ -1,7 +1,8 @@
 import { Box, Stack, Typography } from '@mui/material';
 import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
+import NavbarButton from './NavbarButton';
 
-const NavbarDesktop = ({ MyNavButton }) => {
+const NavbarDesktop = () => {
   return (
     <Box
       display='flex'
@@ -25,8 +26,8 @@ const NavbarDesktop = ({ MyNavButton }) => {
       </Stack>
 
       <Box>
-        <MyNavButton variant='text'>Login</MyNavButton>
-        <MyNavButton variant='text'>Signup</MyNavButton>
+        <NavbarButton variant='text'>Login</NavbarButton>
+        <NavbarButton variant='text'>Signup</NavbarButton>
       </Box>
     </Box>
   );

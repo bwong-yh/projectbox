@@ -1,13 +1,4 @@
-import { NavLink } from 'react-router-dom';
-import {
-  Box,
-  Divider,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Toolbar,
-} from '@mui/material';
+import { Box, Divider, List, ListItem, ListItemText } from '@mui/material';
 
 const SidebarContent = () => {
   return (

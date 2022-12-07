@@ -1,7 +1,7 @@
 import { Button, styled } from '@mui/material';
 
 const NavbarButton = styled(Button)(() => ({
-  color: '#000',
+  color: '#fff',
   fontSize: '1rem',
   justifyContent: 'center',
   marginLeft: '1rem',

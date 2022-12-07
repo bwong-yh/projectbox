@@ -18,7 +18,7 @@ const NavbarMobile = () => {
     >
       <Stack direction='row' alignItems='center'>
         <IconButton
-          sx={{ padding: 0 }}
+          sx={{ color: 'white', padding: 0 }}
           onClick={e => {
             e.stopPropagation();
             handleSidebar(true);
@@ -26,7 +26,7 @@ const NavbarMobile = () => {
         >
           <MenuIcon />
         </IconButton>
-        <AddTaskOutlinedIcon sx={{ marginLeft: '1rem' }} />
+        <AddTaskOutlinedIcon sx={{ color: 'white', marginLeft: '1rem' }} />
       </Stack>
 
       <Box

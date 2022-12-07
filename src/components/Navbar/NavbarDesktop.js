@@ -11,9 +11,10 @@ const NavbarDesktop = () => {
       sx={{ width: '100%' }}
     >
       <Stack direction='row' alignItems='center'>
-        <AddTaskOutlinedIcon sx={{ mr: '1rem' }} />
+        <AddTaskOutlinedIcon sx={{ color: 'white', mr: '1rem' }} />
         <Typography
           variant='h6'
+          color='white'
           noWrap
           sx={{
             fontFamily: 'monospace',

@@ -1,11 +1,4 @@
-import {
-  AppBar,
-  Button,
-  styled,
-  Toolbar,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
+import { AppBar, Toolbar, useMediaQuery, useTheme } from '@mui/material';
 import NavbarMobile from './NavbarMobile';
 import NavbarDesktop from './NavbarDesktop';
 

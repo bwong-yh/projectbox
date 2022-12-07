@@ -1,0 +1,33 @@
+import { NavLink } from 'react-router-dom';
+import {
+  Box,
+  Divider,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Toolbar,
+} from '@mui/material';
+
+const SidebarContent = () => {
+  return (
+    <>
+      <Box>Hello, User!</Box>
+
+      <Divider variant='middle' />
+
+      <List>
+        <ListItem>
+          <ListItemText primary='Dashboard' />
+        </ListItem>
+        <ListItem>
+          <ListItemText primary='New Project' />
+        </ListItem>
+      </List>
+
+      <Divider variant='middle' />
+    </>
+  );
+};
+
+export default SidebarContent;

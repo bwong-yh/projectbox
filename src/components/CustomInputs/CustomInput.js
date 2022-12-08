@@ -1,7 +1,7 @@
 import { TextField } from '@mui/material';
 import { useField } from 'formik';
 
-const CustomInput = ({ label, ...props }) => {
+const CustomInput = ({ label, type, ...props }) => {
   const [field, meta] = useField(props);
 
   return (

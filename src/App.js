@@ -1,6 +1,6 @@
 import { Box, CssBaseline } from '@mui/material';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import useSidebar from './components/hooks/useSidebar';
+import useSidebar from './hooks/useSidebar';
 import Layout from './components/Layout/Layout';
 import Navbar from './components/Navbar';
 import Create from './pages/Create/Create';

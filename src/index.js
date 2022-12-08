@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import { ThemeProvider } from '@mui/material';
 import theme from './styles/theme';
-import { SidebarProvider } from './components/context/SidebarContext';
+import { SidebarProvider } from './context/SidebarContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

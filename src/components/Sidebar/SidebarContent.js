@@ -9,7 +9,7 @@ const SidebarContent = () => {
 
       <Divider variant='middle' />
 
-      <List>
+      <List sx={{ margin: '0.5rem 0' }}>
         <SidebarNavLink component={NavLink} to='/'>
           <ListItemText primary='Dashboard' />
         </SidebarNavLink>

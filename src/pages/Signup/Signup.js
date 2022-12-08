@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { Form, Formik } from 'formik';
 import CustomInput from '../../components/CustomInputs/CustomInput';
+import useAuthContext from '../../hooks/useAuthContext';
 import useSignup from '../../hooks/useSignup';
 import formStyle from '../../styles/form';
 import SignupSchema from './SignupSchema';
@@ -18,7 +19,10 @@ const Signup = () => {
   const { signup, isPending, error } = useSignup();
 
   const onSubmit = (values, actions) => {
-    signup(values);
+    signup(values).then(res => {
+      // reset form is user is return (= successfully signed up)
+      if (res) actions.resetForm();
+    });
   };
 
   return (
@@ -41,6 +45,7 @@ const Signup = () => {
               <Button
                 variant='outlined'
                 type='submit'
+                disabled={isPending}
                 sx={{
                   '&:hover': {
                     color: theme.palette.primary.dark,
@@ -49,7 +54,7 @@ const Signup = () => {
               >
                 {isPending ? 'Signing up' : 'Sign up'}
               </Button>
-              {error ? <FormHelperText>{error}</FormHelperText> : null}
+              {error ? <FormHelperText error>{error}</FormHelperText> : null}
             </Form>
           )}
         </Formik>

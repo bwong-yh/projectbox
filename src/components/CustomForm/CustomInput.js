@@ -9,7 +9,7 @@ const CustomInput = ({ label, ...props }) => {
       label={label}
       {...props}
       {...field}
-      error={meta.touched && meta.error}
+      error={meta.touched && Boolean(meta.error)}
       helperText={meta.touched && meta.error ? meta.error : null}
     />
   );

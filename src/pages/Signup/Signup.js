@@ -1,33 +1,23 @@
 import { Box, Container, Toolbar, Typography } from '@mui/material';
 import { Form, Formik } from 'formik';
-import CustomForm from '../../components/CustomInput/CustomInput';
+import CustomForm from '../../components/CustomForm/CustomForm';
+import CustomInput from '../../components/CustomForm/CustomInput';
+
 import SignupSchema from './SignupSchema';
 
 const Signup = () => {
-  const onSubmit = (values, actions) => {
-    console.log('🚀 ~ file: Signup.js:8 ~ onSubmit ~ actions', actions);
-    console.log('🚀 ~ file: Signup.js:8 ~ onSubmit ~ values', values);
-  };
+  //   const onSubmit = (values, actions) => {
+  //     console.log('🚀 ~ file: Signup.js:8 ~ onSubmit ~ actions', actions);
+  //     console.log('🚀 ~ file: Signup.js:8 ~ onSubmit ~ values', values);
+  //   };
 
   return (
     <Container>
       <Toolbar />
-      <Box>
-        <Typography>Signup!</Typography>
-        <Formik
-          initialValues={{ email: 'billy@dev.com' }}
-          validationSchema={SignupSchema}
-          onSubmit={onSubmit}
-        >
-          {props => (
-            <Form>
-              <CustomForm label='Email' name='email' />
 
-              <button type='submit'>Submit</button>
-            </Form>
-          )}
-        </Formik>
-      </Box>
+      <CustomForm schema={SignupSchema}>
+        <CustomInput label='Email' name='email' />
+      </CustomForm>
     </Container>
   );
 };

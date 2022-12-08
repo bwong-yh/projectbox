@@ -5,6 +5,7 @@ const NavbarButton = styled(Button)(() => ({
   fontSize: '1rem',
   justifyContent: 'center',
   marginLeft: '1rem',
+  minWidth: 0,
   padding: 0,
   '&:hover': {
     fontWeight: 700,

@@ -5,6 +5,7 @@ import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import MenuIcon from '@mui/icons-material/Menu';
 import useSidebar from '../hooks/useSidebar';
 import NavbarButton from './NavbarButton';
+import { NavLink } from 'react-router-dom';
 
 const NavbarMobile = () => {
   const { handleSidebar } = useSidebar();
@@ -37,10 +38,10 @@ const NavbarMobile = () => {
           },
         }}
       >
-        <NavbarButton variant='text'>
+        <NavbarButton variant='text' component={NavLink} to='/login'>
           <LoginIcon />
         </NavbarButton>
-        <NavbarButton variant='text'>
+        <NavbarButton variant='text' component={NavLink} to='/signup'>
           <AppRegistrationIcon />
         </NavbarButton>
       </Box>

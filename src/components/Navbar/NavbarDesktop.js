@@ -1,6 +1,7 @@
 import { Box, Stack, Typography } from '@mui/material';
 import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
 import NavbarButton from './NavbarButton';
+import { NavLink } from 'react-router-dom';
 
 const NavbarDesktop = () => {
   return (
@@ -27,8 +28,12 @@ const NavbarDesktop = () => {
       </Stack>
 
       <Box>
-        <NavbarButton variant='text'>Login</NavbarButton>
-        <NavbarButton variant='text'>Signup</NavbarButton>
+        <NavbarButton variant='text' component={NavLink} to='/login'>
+          Login
+        </NavbarButton>
+        <NavbarButton variant='text' component={NavLink} to='/signup'>
+          Signup
+        </NavbarButton>
       </Box>
     </Box>
   );

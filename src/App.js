@@ -15,9 +15,10 @@ function App() {
     // sidebar is close when click on any in the app
     <Box onClick={() => handleSidebar(false)}>
       <CssBaseline />
-      <Navbar />
 
       <BrowserRouter>
+        <Navbar />
+
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Dashboard />} />

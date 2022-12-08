@@ -14,6 +14,7 @@ const Sidebar = () => {
       sx={{
         '& .MuiDrawer-paper': {
           backgroundColor: theme.palette.primary.light,
+          border: 0,
         },
       }}
     >

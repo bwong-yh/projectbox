@@ -10,10 +10,11 @@ const Sidebar = () => {
   return (
     <Drawer
       open={sidebarOpen}
-      variant={!matches && 'permanent'}
+      variant={matches ? 'temporary' : 'permanent'}
       sx={{
         '& .MuiDrawer-paper': {
           backgroundColor: theme.palette.primary.light,
+          border: 0,
         },
       }}
     >

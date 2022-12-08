@@ -1,5 +1,5 @@
 import { Drawer, useMediaQuery, Toolbar, useTheme } from '@mui/material';
-import useSidebar from '../hooks/useSidebar';
+import useSidebar from '../../hooks/useSidebar';
 import SidebarContent from './SidebarContent';
 
 const Sidebar = () => {

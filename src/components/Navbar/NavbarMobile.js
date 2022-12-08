@@ -3,7 +3,7 @@ import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
 import LoginIcon from '@mui/icons-material/Login';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import MenuIcon from '@mui/icons-material/Menu';
-import useSidebar from '../hooks/useSidebar';
+import useSidebar from '../../hooks/useSidebar';
 import NavbarButton from './NavbarButton';
 import { NavLink } from 'react-router-dom';
 

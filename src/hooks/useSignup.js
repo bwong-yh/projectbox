@@ -20,7 +20,7 @@ const useSignup = () => {
       // display name can only be set after user is created
       await updateProfile(res.user, { displayName: displayName.trim() });
 
-      // when firebase created a new user, it logs it automatically; so need to update on the frontend
+      // when firebase created a new user, it logs it automatically; so need & maintain user state on the frontend
       dispatch({ type: 'LOGIN', payload: res.user });
 
       setIsPending(false);

@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useNavigate } from 'react-router-dom';
 import { Box, Toolbar, useMediaQuery, useTheme } from '@mui/material';
 import Sidebar from '../Sidebar';
 
@@ -9,19 +9,25 @@ const Layout = ({ user }) => {
 
   return (
     <>
-      <Sidebar />
+      {user ? (
+        <>
+          <Sidebar />
 
-      <Box
-        component='main'
-        sx={{
-          backgroundColor: '#fff',
-          marginLeft: 'auto',
-          width: matches ? '100%' : `calc(100% - ${draweWidth}px)`,
-        }}
-      >
-        <Toolbar />
-        <Outlet />
-      </Box>
+          <Box
+            component='main'
+            sx={{
+              backgroundColor: '#fff',
+              marginLeft: 'auto',
+              width: matches ? '100%' : `calc(100% - ${draweWidth}px)`,
+            }}
+          >
+            <Toolbar />
+            <Outlet />
+          </Box>
+        </>
+      ) : (
+        <Navigate to='/login' />
+      )}
     </>
   );
 };

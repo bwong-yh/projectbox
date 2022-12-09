@@ -1,6 +1,6 @@
 import { Button, styled } from '@mui/material';
 
-const NavbarButton = styled(Button)(() => ({
+const NavbarNavLink = styled(Button)(() => ({
   color: '#fff',
   fontSize: '1rem',
   justifyContent: 'center',
@@ -12,4 +12,4 @@ const NavbarButton = styled(Button)(() => ({
   },
 }));
 
-export default NavbarButton;
+export default NavbarNavLink;

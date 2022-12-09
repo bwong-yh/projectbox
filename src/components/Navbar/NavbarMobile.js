@@ -5,7 +5,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import MenuIcon from '@mui/icons-material/Menu';
 import useSidebar from '../../hooks/useSidebar';
-import NavbarLink from './NavbavLink';
+import NavbarNavLink from './NavbavNavLink';
 import { NavLink, useNavigate } from 'react-router-dom';
 import useAuthContext from '../../hooks/useAuthContext';
 import useLogout from '../../hooks/useLogout';
@@ -50,18 +50,18 @@ const NavbarMobile = () => {
         }}
       >
         {user ? (
-          <NavbarLink component={NavLink} onClick={handleLogout}>
+          <NavbarNavLink component={NavLink} onClick={handleLogout}>
             <LogoutIcon />
-          </NavbarLink>
+          </NavbarNavLink>
         ) : (
           <>
-            <NavbarLink component={NavLink} to='/login'>
+            <NavbarNavLink component={NavLink} to='/login'>
               <LoginIcon />
-            </NavbarLink>
+            </NavbarNavLink>
 
-            <NavbarLink component={NavLink} to='/signup'>
+            <NavbarNavLink component={NavLink} to='/signup'>
               <AppRegistrationIcon />
-            </NavbarLink>
+            </NavbarNavLink>
           </>
         )}
       </Box>

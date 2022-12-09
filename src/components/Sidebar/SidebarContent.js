@@ -1,11 +1,14 @@
 import { Box, Divider, List, ListItemText } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import useAuthContext from '../../hooks/useAuthContext';
 import SidebarNavLink from './SidebarNavLink';
 
 const SidebarContent = () => {
+  const { user } = useAuthContext();
+
   return (
     <>
-      <Box height='15rem'>Hello, User!</Box>
+      <Box height='15rem'>Hello, {user.displayName}!</Box>
 
       <Divider variant='middle' />
 

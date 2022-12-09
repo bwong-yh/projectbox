@@ -7,7 +7,6 @@ const formStyle = {
   },
   '& .MuiFormControl-root': {
     marginBottom: '1.5rem',
-    width: '100%',
   },
 };
 

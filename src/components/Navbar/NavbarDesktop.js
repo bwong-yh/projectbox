@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from '@mui/material';
 import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
-import NavbarButton from './NavbarButton';
+import NavbarLink from './NavbavLink';
 import { NavLink, useNavigate } from 'react-router-dom';
 import useAuthContext from '../../hooks/useAuthContext';
 import useLogout from '../../hooks/useLogout';
@@ -40,17 +40,17 @@ const NavbarDesktop = () => {
 
       <Box>
         {user ? (
-          <NavbarButton component={NavLink} onClick={handleLogout}>
+          <NavbarLink component={NavLink} onClick={handleLogout}>
             Logout
-          </NavbarButton>
+          </NavbarLink>
         ) : (
           <>
-            <NavbarButton component={NavLink} to='/login'>
+            <NavbarLink component={NavLink} to='/login'>
               Login
-            </NavbarButton>
-            <NavbarButton component={NavLink} to='/signup'>
+            </NavbarLink>
+            <NavbarLink component={NavLink} to='/signup'>
               Signup
-            </NavbarButton>
+            </NavbarLink>
           </>
         )}
       </Box>

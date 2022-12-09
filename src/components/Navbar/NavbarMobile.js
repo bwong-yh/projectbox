@@ -1,4 +1,11 @@
-import { Box, IconButton, Stack } from '@mui/material';
+import {
+  Box,
+  IconButton,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
@@ -9,8 +16,11 @@ import NavbarNavLink from './NavbavNavLink';
 import { NavLink, useNavigate } from 'react-router-dom';
 import useAuthContext from '../../hooks/useAuthContext';
 import useLogout from '../../hooks/useLogout';
+import NavbarBrand from './NavbarBrand';
 
 const NavbarMobile = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
   const { handleSidebar } = useSidebar();
   const { user } = useAuthContext();
   const logout = useLogout();
@@ -38,7 +48,8 @@ const NavbarMobile = () => {
         >
           <MenuIcon />
         </IconButton>
-        <AddTaskOutlinedIcon sx={{ color: 'white', marginLeft: '1rem' }} />
+        <AddTaskOutlinedIcon sx={{ color: 'white', margin: '0 1rem' }} />
+        {matches ? null : <NavbarBrand />}
       </Stack>
 
       <Box

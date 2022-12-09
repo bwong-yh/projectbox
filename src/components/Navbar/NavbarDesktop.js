@@ -4,6 +4,7 @@ import NavbarNavLink from './NavbavNavLink';
 import { NavLink, useNavigate } from 'react-router-dom';
 import useAuthContext from '../../hooks/useAuthContext';
 import useLogout from '../../hooks/useLogout';
+import NavbarBrand from './NavbarBrand';
 
 const NavbarDesktop = () => {
   const { user } = useAuthContext();
@@ -24,18 +25,7 @@ const NavbarDesktop = () => {
     >
       <Stack direction='row' alignItems='center'>
         <AddTaskOutlinedIcon sx={{ color: 'white', mr: '1rem' }} />
-        <Typography
-          variant='h6'
-          color='white'
-          noWrap
-          sx={{
-            fontFamily: 'monospace',
-            fontWeight: 700,
-            letterSpacing: '.3rem',
-          }}
-        >
-          PROJECTBOX
-        </Typography>
+        <NavbarBrand />
       </Stack>
 
       <Box>

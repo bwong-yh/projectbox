@@ -29,7 +29,7 @@ const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     onAuthStateChanged(auth, user => {
       // state prop is set to true regardless if there's a logged in user or not
-      dispatch({ type: 'AUTH_READY', payload: { user } });
+      dispatch({ type: 'AUTH_READY', payload: user || null });
     });
   }, []);
 

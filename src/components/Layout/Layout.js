@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { Box, Toolbar, useMediaQuery, useTheme } from '@mui/material';
 import Sidebar from '../Sidebar';
 
-const Layout = () => {
+const Layout = ({ user }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
   const draweWidth = theme.components.MuiDrawer.styleOverrides.paper.width;

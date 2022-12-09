@@ -8,7 +8,7 @@ const NavbarButton = styled(Button)(() => ({
   minWidth: 0,
   padding: 0,
   '&:hover': {
-    fontWeight: 700,
+    backgroundColor: 'transparent',
   },
 }));
 

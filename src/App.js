@@ -25,7 +25,7 @@ function App() {
               <Navbar />
 
               <Routes>
-                <Route path='/' element={<Layout />}>
+                <Route path='/' element={<Layout user={user} />}>
                   <Route index element={<Dashboard />} />
                   <Route path='create' element={<Create />} />
                 </Route>

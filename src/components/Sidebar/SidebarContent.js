@@ -8,9 +8,7 @@ const SidebarContent = () => {
 
   return (
     <>
-      <Box height='15rem'>
-        Hello, {(user && user.displayName) || 'stranger'}!
-      </Box>
+      <Box height='15rem'>Hello, {user.displayName}!</Box>
 
       <Divider variant='middle' />
 

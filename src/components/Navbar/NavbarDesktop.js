@@ -10,9 +10,6 @@ const NavbarDesktop = () => {
   const logout = useLogout();
   const navigate = useNavigate();
 
-  console.log(user);
-  console.log(!user);
-
   const handleLogout = () => {
     logout();
     navigate('/');
@@ -43,19 +40,15 @@ const NavbarDesktop = () => {
 
       <Box>
         {user ? (
-          <NavbarButton
-            variant='text'
-            component={NavLink}
-            onClick={handleLogout}
-          >
+          <NavbarButton component={NavLink} onClick={handleLogout}>
             Logout
           </NavbarButton>
         ) : (
           <>
-            <NavbarButton variant='text' component={NavLink} to='/login'>
+            <NavbarButton component={NavLink} to='/login'>
               Login
             </NavbarButton>
-            <NavbarButton variant='text' component={NavLink} to='/signup'>
+            <NavbarButton component={NavLink} to='/signup'>
               Signup
             </NavbarButton>
           </>

@@ -48,7 +48,6 @@ const CustomSelect = ({ label, options, ...props }) => {
           </MenuItem>
         ))}
       </Select>
-
       {meta.touched && meta.error ? (
         <FormHelperText error>{meta.error}</FormHelperText>
       ) : null}

@@ -7,6 +7,7 @@ import {
   useTheme,
 } from '@mui/material';
 import { Form, Formik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import CustomInput from '../../components/CustomInputs/CustomInput';
 import CustomSelect from '../../components/CustomInputs/CustomSelect';
 import useAuthContext from '../../hooks/useAuthContext';
@@ -20,6 +21,7 @@ const Create = () => {
   // useFirestore is a hook to manage projects to firebase
   const { addProject, isPending, error } = useFirestore('projects');
   const { user } = useAuthContext();
+  const navigate = useNavigate();
 
   const onSubmit = (values, actions) => {
     addProject({
@@ -29,6 +31,12 @@ const Create = () => {
         uid: user.uid,
         photoURL: user.photoURL,
       },
+    }).then(res => {
+      // reset form and redirect to dashboard after project is saved
+      if (res) {
+        actions.resetForm();
+        navigate('/');
+      }
     });
   };
 

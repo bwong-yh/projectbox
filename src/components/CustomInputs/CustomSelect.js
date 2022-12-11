@@ -1,6 +1,7 @@
 import {
   Checkbox,
   FormControl,
+  FormHelperText,
   InputLabel,
   ListItemText,
   MenuItem,
@@ -8,10 +9,9 @@ import {
   Select,
 } from '@mui/material';
 import { useField } from 'formik';
-import { useState } from 'react';
 
 const CustomSelect = ({ label, options, ...props }) => {
-  const [field, meta, helper] = useField(props, { multiple: true });
+  const [field, meta] = useField(props, { multiple: true });
 
   const inputLabel = label[0].toUpperCase() + label.slice(1);
 
@@ -27,7 +27,7 @@ const CustomSelect = ({ label, options, ...props }) => {
   };
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth error={meta.touched && meta.error}>
       <InputLabel id={inputLabel}>{inputLabel}</InputLabel>
       <Select
         multiple
@@ -39,6 +39,7 @@ const CustomSelect = ({ label, options, ...props }) => {
         input={<OutlinedInput label={inputLabel} />}
         renderValue={selected => selected.join(', ')}
         MenuProps={MenuProps}
+        error={meta.touched && Boolean(meta.error)}
       >
         {options.map(option => (
           <MenuItem key={option.value} value={option.value}>
@@ -47,6 +48,10 @@ const CustomSelect = ({ label, options, ...props }) => {
           </MenuItem>
         ))}
       </Select>
+
+      {meta.touched && meta.error ? (
+        <FormHelperText error>{meta.error}</FormHelperText>
+      ) : null}
     </FormControl>
   );
 };

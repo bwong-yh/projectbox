@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import CustomInput from '../../components/CustomInputs/CustomInput';
 import CustomSelect from '../../components/CustomInputs/CustomSelect';
 import useAuthContext from '../../hooks/useAuthContext';
+import useCollection from '../../hooks/useCollection';
 import useFirestore from '../../hooks/useFirestore';
 import formStyle from '../../styles/form';
 import categoryOptions from './CategoryOptions';
@@ -21,6 +22,7 @@ const Create = () => {
   // useFirestore is a hook to manage projects to firebase
   const { addProject, isPending, error } = useFirestore('projects');
   const { user } = useAuthContext();
+  const { documents: users } = useCollection('users');
   const navigate = useNavigate();
 
   const onSubmit = (values, actions) => {
@@ -77,11 +79,10 @@ const Create = () => {
               <CustomSelect
                 label='assign to'
                 name='assignUsers'
-                options={[
-                  { label: 'billy', value: 'billy' },
-                  { label: 'awesomeKenny', value: 'awesomeKenny' },
-                  { label: 'jenny w.', value: 'jenny w.' },
-                ]}
+                options={users.map(user => ({
+                  label: user.displayName,
+                  value: user.displayName,
+                }))}
               />
 
               <Button

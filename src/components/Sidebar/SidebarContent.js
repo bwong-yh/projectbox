@@ -1,7 +1,7 @@
 import { Box, Divider, List, ListItemText, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import useAuthContext from '../../hooks/useAuthContext';
-import CustomAvatar from '../Avatar/CustomAvatar';
+import CustomAvatar from '../CustomAvatar/CustomAvatar';
 import SidebarNavLink from './SidebarNavLink';
 
 const SidebarContent = () => {

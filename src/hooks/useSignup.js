@@ -18,7 +18,7 @@ const useSignup = () => {
 
       if (!res) throw new Error('Unable to create user');
 
-      // upload to file to firestore bucket to get url; then use that to update user info
+      // upload file to firestore bucket to get url; then use that to update user info
       let fileURL = null;
 
       if (file) {

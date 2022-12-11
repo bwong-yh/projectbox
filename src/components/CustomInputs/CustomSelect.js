@@ -9,9 +9,8 @@ import {
 } from '@mui/material';
 import { useField } from 'formik';
 import { useState } from 'react';
-import categoryOptions from '../../pages/Create/CategoryOptions';
 
-const CustomSelect = ({ label, ...props }) => {
+const CustomSelect = ({ label, options, ...props }) => {
   const [field, meta, helper] = useField(props, { multiple: true });
 
   const inputLabel = label[0].toUpperCase() + label.slice(1);
@@ -29,7 +28,7 @@ const CustomSelect = ({ label, ...props }) => {
 
   return (
     <FormControl fullWidth>
-      <InputLabel id='categoryLabel'>{inputLabel}</InputLabel>
+      <InputLabel id={inputLabel}>{inputLabel}</InputLabel>
       <Select
         multiple
         label={label}
@@ -41,7 +40,7 @@ const CustomSelect = ({ label, ...props }) => {
         renderValue={selected => selected.join(', ')}
         MenuProps={MenuProps}
       >
-        {categoryOptions.map(option => (
+        {options.map(option => (
           <MenuItem key={option.value} value={option.value}>
             <Checkbox checked={field.value.indexOf(option.value) > -1} />
             <ListItemText primary={option.label} />

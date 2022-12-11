@@ -24,10 +24,16 @@ const Create = () => {
   return (
     <Container sx={formStyle}>
       <Box>
-        <Typography variant='h3'>Login!</Typography>
+        <Typography variant='h3'>New Project</Typography>
 
         <Formik
-          initialValues={{ name: '', details: '', dueDate: '', category: [] }}
+          initialValues={{
+            name: '',
+            details: '',
+            dueDate: '',
+            categories: [],
+            assignUsers: [],
+          }}
           //  validationSchema={LoginSchema}
           onSubmit={onSubmit}
         >
@@ -43,7 +49,20 @@ const Create = () => {
                   shrink: true,
                 }}
               />
-              <CustomSelect label='category' name='category' />
+              <CustomSelect
+                label='category'
+                name='categories'
+                options={categoryOptions}
+              />
+              <CustomSelect
+                label='assign to'
+                name='assignUsers'
+                options={[
+                  { label: 'billy', value: 'billy' },
+                  { label: 'awesomeKenny', value: 'awesomeKenny' },
+                  { label: 'jenny w.', value: 'jenny w.' },
+                ]}
+              />
 
               <Button
                 variant='outlined'

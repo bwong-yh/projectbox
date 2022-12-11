@@ -31,6 +31,7 @@ const Create = () => {
         uid: user.uid,
         photoURL: user.photoURL,
       },
+      comments: [],
     }).then(res => {
       // reset form and redirect to dashboard after project is saved
       if (res) {

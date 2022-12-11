@@ -22,8 +22,6 @@ const AuthContextProvider = ({ children }) => {
     authReady: false,
   });
 
-  console.log('currentState', state);
-
   // every time page is refresh, user is reset back to null even firebase is still logged it
   // check firebase is any user is logged in or not when componet first mount, set app state accordingly
   useEffect(() => {

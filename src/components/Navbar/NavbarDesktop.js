@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
 import NavbarNavLink from './NavbavNavLink';
 import { NavLink, useNavigate } from 'react-router-dom';

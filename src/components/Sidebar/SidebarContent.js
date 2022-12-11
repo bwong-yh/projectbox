@@ -1,6 +1,7 @@
-import { Box, Divider, List, ListItemText } from '@mui/material';
+import { Box, Divider, List, ListItemText, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import useAuthContext from '../../hooks/useAuthContext';
+import CustomAvatar from '../Avatar/CustomAvatar';
 import SidebarNavLink from './SidebarNavLink';
 
 const SidebarContent = () => {
@@ -8,7 +9,15 @@ const SidebarContent = () => {
 
   return (
     <>
-      <Box height='15rem'>Hello, {user.displayName}!</Box>
+      <Box height='15rem' padding='1rem'>
+        <Typography variant='h6' textAlign='center'>
+          Hello, {user.displayName}!
+        </Typography>
+        <CustomAvatar
+          user={user}
+          sx={{ height: '75%', margin: '.5rem auto', width: '75%' }}
+        />
+      </Box>
 
       <Divider variant='middle' />
 

@@ -7,6 +7,12 @@ const SignupSchema = yup.object().shape({
     .string()
     .max(12, 'Display Name cannot exceed 12 characters')
     .required('Display Name is required'),
+  file: yup.mixed().test('fileSize', 'File cannot exceed 100kb', value => {
+    // attachment is optional
+    if (!value) return true;
+
+    return value.size <= 100000;
+  }),
 });
 
 export default SignupSchema;

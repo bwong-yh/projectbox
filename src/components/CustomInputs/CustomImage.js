@@ -1,12 +1,5 @@
-import {
-  Box,
-  Button,
-  FormControl,
-  FormHelperText,
-  IconButton,
-} from '@mui/material';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
-import { useField, Formik } from 'formik';
+import { Box, Button, FormControl, FormHelperText } from '@mui/material';
+import { useField } from 'formik';
 import { useEffect, useState } from 'react';
 
 const CustomImage = ({ setFieldValue, ...props }) => {
@@ -14,6 +7,8 @@ const CustomImage = ({ setFieldValue, ...props }) => {
   const [preview, setPreview] = useState('');
   const { value } = meta;
   const { setValue } = helper;
+
+  console.log(field);
 
   useEffect(() => {
     value ? setPreview(URL.createObjectURL(value)) : setPreview('');
@@ -40,6 +35,7 @@ const CustomImage = ({ setFieldValue, ...props }) => {
         <FormHelperText>
           {meta.touched && meta.error ? meta.error : null}
         </FormHelperText>
+        {/* preview box */}
         <Box
           sx={{
             display: 'flex',

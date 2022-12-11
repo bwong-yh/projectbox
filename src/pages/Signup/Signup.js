@@ -2,14 +2,12 @@ import {
   Box,
   Button,
   Container,
-  FormControl,
   FormHelperText,
-  FormLabel,
   Toolbar,
   Typography,
   useTheme,
 } from '@mui/material';
-import { Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import CustomImage from '../../components/CustomInputs/CustomImage';
 import CustomInput from '../../components/CustomInputs/CustomInput';
@@ -23,15 +21,13 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const onSubmit = (values, actions) => {
-    console.log(values);
-
-    // signup(values).then(res => {
-    //   // reset form is user is return (= successfully signed up)
-    //   if (res) {
-    //     actions.resetForm();
-    //     navigate('/');
-    //   }
-    // });
+    signup(values).then(res => {
+      // reset form is user is return (= successfully signed up)
+      if (res) {
+        actions.resetForm();
+        navigate('/');
+      }
+    });
   };
 
   return (

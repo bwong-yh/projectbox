@@ -2,13 +2,16 @@ import {
   Box,
   Button,
   Container,
+  FormControl,
   FormHelperText,
+  FormLabel,
   Toolbar,
   Typography,
   useTheme,
 } from '@mui/material';
-import { Form, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
+import CustomImage from '../../components/CustomInputs/CustomImage';
 import CustomInput from '../../components/CustomInputs/CustomInput';
 import useSignup from '../../hooks/useSignup';
 import formStyle from '../../styles/form';
@@ -20,13 +23,15 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const onSubmit = (values, actions) => {
-    signup(values).then(res => {
-      // reset form is user is return (= successfully signed up)
-      if (res) {
-        actions.resetForm();
-        navigate('/');
-      }
-    });
+    console.log(values);
+
+    // signup(values).then(res => {
+    //   // reset form is user is return (= successfully signed up)
+    //   if (res) {
+    //     actions.resetForm();
+    //     navigate('/');
+    //   }
+    // });
   };
 
   return (
@@ -36,15 +41,23 @@ const Signup = () => {
       <Box sx={formStyle}>
         <Typography variant='h3'>Signup!</Typography>
         <Formik
-          initialValues={{ email: '', password: '', displayName: '' }}
+          initialValues={{
+            email: '',
+            password: '',
+            displayName: '',
+            file: null,
+          }}
           validationSchema={SignupSchema}
           onSubmit={onSubmit}
         >
-          {props => (
+          {({ setFieldValue }) => (
             <Form>
               <CustomInput label='Email' name='email' />
               <CustomInput label='Password' name='password' type='password' />
               <CustomInput label='Display Name' name='displayName' />
+
+              {/* image for avatar */}
+              <CustomImage setFieldValue={setFieldValue} name='file' />
 
               <Button
                 variant='outlined'

@@ -2,7 +2,7 @@ import { Box, Button, FormControl, FormHelperText } from '@mui/material';
 import { useField } from 'formik';
 import { useEffect, useState } from 'react';
 
-const CustomImage = ({ setFieldValue, ...props }) => {
+const CustomImage = ({ ...props }) => {
   const [field, meta, helper] = useField(props.name);
   const [preview, setPreview] = useState('');
   const { value } = meta;

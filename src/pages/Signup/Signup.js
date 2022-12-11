@@ -46,14 +46,14 @@ const Signup = () => {
           validationSchema={SignupSchema}
           onSubmit={onSubmit}
         >
-          {({ setFieldValue }) => (
+          {props => (
             <Form>
               <CustomInput label='Email' name='email' />
               <CustomInput label='Password' name='password' type='password' />
               <CustomInput label='Display Name' name='displayName' />
 
               {/* image for avatar */}
-              <CustomImage setFieldValue={setFieldValue} name='file' />
+              <CustomImage name='file' />
 
               <Button
                 variant='outlined'

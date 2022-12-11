@@ -1,9 +1,11 @@
-import { Avatar } from '@mui/material';
+import { Avatar, Typography } from '@mui/material';
 
 const CustomAvatar = ({ user, ...props }) => {
   return (
     <Avatar src={user.photoURL} alt={user.displayName} {...props}>
-      {user.displayName[0].toUpperCase()}
+      <Typography fontSize='4em'>
+        {user.displayName[0].toUpperCase()}
+      </Typography>
     </Avatar>
   );
 };

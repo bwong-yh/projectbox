@@ -1,16 +1,20 @@
-import { collection, onSnapshot } from 'firebase/firestore';
-import { useEffect, useState } from 'react';
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
+import { useEffect, useRef, useState } from 'react';
 import { db } from '../firebase/config';
 
-const useCollection = queryCollection => {
-  console.log(
-    '🚀 ~ file: useCollection.js:6 ~ useCollection ~ queryCollection',
-    queryCollection
-  );
+const useCollection = (coll, _orderCollection) => {
   const [documents, setDocuments] = useState([]);
 
+  // _orderColl is an array (= reference type), so react sees them as 'different' every time function is called and cause an infinite loop
+  // use useRef to ensure infinite loop doesn't happen
+  const orderCollection = useRef(_orderCollection).current;
+
   useEffect(() => {
-    const collectionRef = collection(db, queryCollection);
+    let collectionRef = collection(db, coll);
+
+    if (orderCollection) {
+      collectionRef = query(collectionRef, orderBy(...orderCollection));
+    }
 
     const unsub = onSnapshot(collectionRef, snapshot => {
       const docs = [];
@@ -21,7 +25,7 @@ const useCollection = queryCollection => {
 
     // when component unmounts, it stops listening to changes
     return () => unsub();
-  }, [queryCollection]);
+  }, [coll, orderCollection]);
 
   return { documents };
 };

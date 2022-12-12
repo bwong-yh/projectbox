@@ -33,7 +33,7 @@ const CustomImage = ({ ...props }) => {
           />
         </Button>
         <FormHelperText>
-          {meta.touched && meta.error ? meta.error : null}
+          {meta.touched && meta.error ? meta.error : 'Upload a thumbnail'}
         </FormHelperText>
         {/* preview box */}
         <Box

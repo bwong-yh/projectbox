@@ -44,8 +44,8 @@ const Create = () => {
   };
 
   return (
-    <Container sx={formStyle}>
-      <Box>
+    <Container>
+      <Box sx={formStyle}>
         <Typography variant='h3'>New Project</Typography>
 
         <Formik

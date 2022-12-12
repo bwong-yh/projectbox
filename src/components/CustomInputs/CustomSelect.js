@@ -37,12 +37,14 @@ const CustomSelect = ({ label, options, ...props }) => {
         {...field}
         value={field.value}
         input={<OutlinedInput label={inputLabel} />}
-        renderValue={selected => selected.join(', ')}
+        renderValue={selected =>
+          selected.map(value => value.displayName || value).join(', ')
+        }
         MenuProps={MenuProps}
         error={meta.touched && Boolean(meta.error)}
       >
         {options.map(option => (
-          <MenuItem key={option.value} value={option.value}>
+          <MenuItem key={option.value.id || option.value} value={option.value}>
             <Checkbox checked={field.value.indexOf(option.value) > -1} />
             <ListItemText primary={option.label} />
           </MenuItem>

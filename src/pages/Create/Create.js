@@ -26,21 +26,23 @@ const Create = () => {
   const navigate = useNavigate();
 
   const onSubmit = (values, actions) => {
-    addProject({
-      ...values,
-      createdBy: {
-        displayName: user.displayName,
-        uid: user.uid,
-        photoURL: user.photoURL,
-      },
-      comments: [],
-    }).then(res => {
-      // reset form and redirect to dashboard after project is saved
-      if (res) {
-        actions.resetForm();
-        navigate('/');
-      }
-    });
+    console.log(values);
+
+    // addProject({
+    //   ...values,
+    //   createdBy: {
+    //     displayName: user.displayName,
+    //     uid: user.uid,
+    //     photoURL: user.photoURL,
+    //   },
+    //   comments: [],
+    // }).then(res => {
+    //   // reset form and redirect to dashboard after project is saved
+    //   if (res) {
+    //     actions.resetForm();
+    //     navigate('/');
+    //   }
+    // });
   };
 
   return (
@@ -81,7 +83,7 @@ const Create = () => {
                 name='assignUsers'
                 options={users.map(user => ({
                   label: user.displayName,
-                  value: user.displayName,
+                  value: user,
                 }))}
               />
 

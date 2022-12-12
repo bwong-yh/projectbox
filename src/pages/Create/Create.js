@@ -26,23 +26,21 @@ const Create = () => {
   const navigate = useNavigate();
 
   const onSubmit = (values, actions) => {
-    console.log(values);
-
-    // addProject({
-    //   ...values,
-    //   createdBy: {
-    //     displayName: user.displayName,
-    //     uid: user.uid,
-    //     photoURL: user.photoURL,
-    //   },
-    //   comments: [],
-    // }).then(res => {
-    //   // reset form and redirect to dashboard after project is saved
-    //   if (res) {
-    //     actions.resetForm();
-    //     navigate('/');
-    //   }
-    // });
+    addProject({
+      ...values,
+      createdBy: {
+        displayName: user.displayName,
+        uid: user.uid,
+        photoURL: user.photoURL,
+      },
+      comments: [],
+    }).then(res => {
+      // reset form and redirect to dashboard after project is saved
+      if (res) {
+        actions.resetForm();
+        navigate('/');
+      }
+    });
   };
 
   return (

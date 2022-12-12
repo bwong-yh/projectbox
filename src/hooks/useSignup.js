@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import useAuthContext from './useAuthContext';
-import { auth, storage } from '../firebase/config';
+import { auth, db, storage } from '../firebase/config';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { doc, setDoc } from 'firebase/firestore';
 
 const useSignup = () => {
   const { dispatch } = useAuthContext();
@@ -32,6 +33,13 @@ const useSignup = () => {
       await updateProfile(res.user, {
         displayName: displayName.trim(),
         photoURL: fileURL,
+      });
+
+      // create doc for each new user for future reference; use user uid as main id
+      await setDoc(doc(db, 'users', res.user.uid), {
+        displayName: res.user.displayName,
+        photoURL: res.user.photoURL,
+        online: true,
       });
 
       // when firebase created a new user, it logs it automatically; so need & maintain user state on the frontend

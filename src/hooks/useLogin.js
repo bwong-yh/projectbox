@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { auth } from '../firebase/config';
+import { auth, db } from '../firebase/config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import useAuthContext from './useAuthContext';
+import { doc, updateDoc } from 'firebase/firestore';
 
 const useLogin = () => {
   const [isPending, setIsPening] = useState(false);
@@ -16,6 +17,14 @@ const useLogin = () => {
       const res = await signInWithEmailAndPassword(auth, email, password);
 
       if (!res) throw new Error('Unable to log in');
+
+      console.log(res.user);
+
+      const userRef = doc(db, 'users', res.user.uid);
+
+      await updateDoc(userRef, {
+        online: true,
+      });
 
       dispatch({ type: 'LOGIN', payload: res.user });
 

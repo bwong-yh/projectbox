@@ -1,9 +1,9 @@
 import {
+  Badge,
   Box,
   Divider,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
   Typography,
 } from '@mui/material';
@@ -50,16 +50,25 @@ const SidebarContent = () => {
       <List sx={{ margin: '0.5rem 0' }}>
         {users.map(user => (
           <ListItem key={user.id}>
-            <CustomAvatar
-              user={user}
-              sx={{
-                height: '2rem',
-                marginRight: '1rem',
-                width: '2rem',
-                '& p': { fontSize: '1.25rem' },
-              }}
+            <Badge
+              variant='dot'
+              color={user.online ? 'success' : 'grey'}
+              overlap='circular'
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+            >
+              <CustomAvatar
+                user={user}
+                sx={{
+                  height: '2rem',
+                  width: '2rem',
+                  '& p': { fontSize: '1.25rem' },
+                }}
+              />
+            </Badge>
+            <ListItemText
+              primary={user.displayName}
+              sx={{ marginLeft: '1rem' }}
             />
-            <ListItemText primary={user.displayName} />
           </ListItem>
         ))}
       </List>

@@ -6,14 +6,19 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import CustomAvatar from '../../components/CustomAvatar/CustomAvatar';
 
 const ProjectList = ({ projects }) => {
+  const navigate = useNavigate();
+
+  console.log(projects);
+
   return (
-    <Grid container marginTop={1} spacing={3}>
+    <Grid container spacing={3}>
       {!projects.length ? (
-        <Typography variant='h4' marginLeft='.2rem'>
-          No projects
+        <Typography variant='h4' sx={{ margin: '1rem 1.75rem' }}>
+          No projects found
         </Typography>
       ) : (
         projects.map(project => (
@@ -26,6 +31,7 @@ const ProjectList = ({ projects }) => {
             sx={{ width: '100%' }}
           >
             <CardActionArea
+              onClick={() => navigate(`/project/${project.id}`)}
               sx={{
                 borderRadius: '4px',
                 boxShadow: '2px 3px 14px -3px rgba(0, 0, 0, 0.25)',
@@ -39,15 +45,11 @@ const ProjectList = ({ projects }) => {
                   Due by: {project.dueDate}
                 </Typography>
 
-                <Divider variant='middle' sx={{ margin: '.75rem 0' }} />
+                <Divider variant='middle' sx={{ margin: '1rem' }} />
 
                 <AvatarGroup>
                   {project.assignUsers.map(user => (
-                    <CustomAvatar
-                      key={user.id}
-                      user={user}
-                      sx={{ '& p': { fontSize: '1.25rem' } }}
-                    />
+                    <CustomAvatar key={user.id} user={user} />
                   ))}
                 </AvatarGroup>
               </CardContent>

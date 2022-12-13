@@ -8,8 +8,6 @@ const CustomImage = ({ ...props }) => {
   const { value } = meta;
   const { setValue } = helper;
 
-  console.log(field);
-
   useEffect(() => {
     value ? setPreview(URL.createObjectURL(value)) : setPreview('');
   }, [value]);

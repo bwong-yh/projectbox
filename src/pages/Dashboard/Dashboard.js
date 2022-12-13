@@ -7,7 +7,9 @@ const Dashboard = () => {
 
   return (
     <Container sx={{ marginTop: '.5rem' }}>
-      <Typography variant='h3'>Dashboard</Typography>
+      <Typography variant='h3' marginBottom={2}>
+        Dashboard
+      </Typography>
 
       <ProjectList projects={projects} />
     </Container>

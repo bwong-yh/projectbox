@@ -1,18 +1,18 @@
-import { Button, FormHelperText, Grid, useTheme } from '@mui/material';
+import { Box, Button, FormHelperText, useTheme } from '@mui/material';
 import { Form, Formik } from 'formik';
 import CustomInput from '../../components/CustomInputs/CustomInput';
 import useAuthContext from '../../hooks/useAuthContext';
 import useFirestore from '../../hooks/useFirestore';
 import CommentSchema from './ProjectCommentSchema';
 
-const ProjectCommentInput = ({ project, ...props }) => {
+const ProjectCommentInput = ({ project }) => {
   const theme = useTheme();
   const { user } = useAuthContext();
   const { updateProject, isPending, error } = useFirestore('projects');
 
   const onSubmit = (values, actions) => {
     updateProject(project.id, {
-      content: values.comment,
+      content: values.comment.trim().split()[0],
       user: {
         displayName: user.displayName,
         photoURL: user.photoURL,
@@ -23,7 +23,7 @@ const ProjectCommentInput = ({ project, ...props }) => {
   };
 
   return (
-    <Grid item {...props}>
+    <Box>
       <Formik
         initialValues={{
           comment: '',
@@ -57,7 +57,7 @@ const ProjectCommentInput = ({ project, ...props }) => {
           </Form>
         )}
       </Formik>
-    </Grid>
+    </Box>
   );
 };
 

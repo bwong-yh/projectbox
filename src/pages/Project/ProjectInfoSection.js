@@ -10,9 +10,8 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import CustomAvatar from '../../components/CustomAvatar/CustomAvatar';
 import useAuthContext from '../../hooks/useAuthContext';
-import ProjectComments from './ProjectComments';
 
-const ProjectInfo = ({ project, ...props }) => {
+const ProjectInfoSection = ({ project, ...props }) => {
   const { user } = useAuthContext();
 
   return (
@@ -37,7 +36,12 @@ const ProjectInfo = ({ project, ...props }) => {
         <Typography variant='bode2' display='block'>
           Project due by {project.dueDate.toDate().toDateString()}
         </Typography>
-        <Typography marginTop={2.5} marginBottom={2.5} fontSize='1.5rem'>
+        <Typography
+          marginTop={2.5}
+          marginBottom={2.5}
+          fontSize='1.5rem'
+          style={{ whiteSpace: 'pre-line' }}
+        >
           {project.details}
         </Typography>
         <Typography mb={0.5} fontWeight={700}>
@@ -59,10 +63,8 @@ const ProjectInfo = ({ project, ...props }) => {
           ) : null}
         </Box>
       </Box>
-
-      <ProjectComments comments={project.comments} />
     </Grid>
   );
 };
 
-export default ProjectInfo;
+export default ProjectInfoSection;

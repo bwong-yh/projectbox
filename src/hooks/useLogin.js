@@ -18,8 +18,6 @@ const useLogin = () => {
 
       if (!res) throw new Error('Unable to log in');
 
-      console.log(res.user);
-
       const userRef = doc(db, 'users', res.user.uid);
 
       await updateDoc(userRef, {

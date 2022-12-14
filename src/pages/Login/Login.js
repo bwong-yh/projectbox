@@ -57,7 +57,7 @@ const Login = () => {
               >
                 {isPending ? 'Logging in' : 'Login'}
               </Button>
-              {error ? <FormHelperText error>{error}</FormHelperText> : null}
+              {error && <FormHelperText error>{error}</FormHelperText>}
             </Form>
           )}
         </Formik>

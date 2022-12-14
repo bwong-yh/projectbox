@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import useAuthContext from './hooks/useAuthContext';
+import Project from './pages/Project/Project';
 
 function App() {
   const { handleSidebar } = useSidebar();
@@ -28,6 +29,7 @@ function App() {
                 <Route path='/' element={<Layout user={user} />}>
                   <Route index element={<Dashboard />} />
                   <Route path='create' element={<Create />} />
+                  <Route path='project/:id' element={<Project />} />
                 </Route>
 
                 <Route path='/login' element={<Login />} />

@@ -1,12 +1,20 @@
-import { addDoc, collection } from 'firebase/firestore';
+import {
+  addDoc,
+  arrayUnion,
+  collection,
+  deleteDoc,
+  doc,
+  updateDoc,
+} from 'firebase/firestore';
 import { useState } from 'react';
 import { db, timestamp } from '../firebase/config';
+import { v4 as uuidv4 } from 'uuid';
 
-const useFirestore = queryCollection => {
+const useFirestore = coll => {
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
 
-  const collectionRef = collection(db, queryCollection);
+  const collectionRef = collection(db, coll);
 
   const addProject = async projectInfo => {
     setError(null);
@@ -29,7 +37,48 @@ const useFirestore = queryCollection => {
     }
   };
 
-  return { isPending, error, addProject };
+  const updateProject = async (docId, updateInfo) => {
+    setError(null);
+    setIsPending(true);
+
+    try {
+      const createdAt = timestamp.fromDate(new Date());
+      const id = uuidv4();
+
+      await updateDoc(doc(collectionRef, docId), {
+        comments: arrayUnion({
+          ...updateInfo,
+          createdAt,
+          id,
+        }),
+      });
+
+      setIsPending(false);
+
+      return true;
+    } catch (error) {
+      console.log(error);
+      setError(error.message);
+      setIsPending(false);
+    }
+  };
+
+  const deleteProject = async docId => {
+    setError(null);
+    setIsPending(true);
+
+    try {
+      await deleteDoc(doc(collectionRef, docId));
+
+      setIsPending(false);
+    } catch (error) {
+      console.log(error);
+      setError(error.message);
+      setIsPending(false);
+    }
+  };
+
+  return { isPending, error, addProject, updateProject, deleteProject };
 };
 
 export default useFirestore;

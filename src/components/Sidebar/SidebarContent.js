@@ -30,7 +30,12 @@ const SidebarContent = () => {
         </Typography>
         <CustomAvatar
           user={user}
-          sx={{ height: '75%', margin: '.5rem auto', width: '75%' }}
+          sx={{
+            fontSize: '4rem',
+            height: '75%',
+            margin: '.5rem auto',
+            width: '75%',
+          }}
         />
       </Box>
 
@@ -61,7 +66,6 @@ const SidebarContent = () => {
                 sx={{
                   height: '2rem',
                   width: '2rem',
-                  '& p': { fontSize: '1.25rem' },
                 }}
               />
             </Badge>

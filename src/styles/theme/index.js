@@ -12,11 +12,22 @@ const colors = {
     800: '#474747',
     900: '#242424',
   },
+  indigo: {
+    100: '#dbdde4',
+    200: '#b6bbc9',
+    300: '#9299af',
+    400: '#6d7794',
+    500: '#495579',
+    600: '#3a4461',
+    700: '#2c3349',
+    800: '#1d2230',
+    900: '#0f1118',
+  },
 };
 
 const drawerWidth = 240;
 
-const theme = createTheme({
+const theme = {
   palette: {
     primary: {
       light: colors.gray[100],
@@ -49,6 +60,6 @@ const theme = createTheme({
   typography: {
     fontFamily: "'Quicksand', sans-serif",
   },
-});
+};
 
-export default theme;
+export { theme, colors };

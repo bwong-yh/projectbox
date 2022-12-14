@@ -16,7 +16,10 @@ const Layout = ({ user }) => {
           <Box
             component='main'
             sx={{
-              backgroundColor: '#fff',
+              backgroundColor:
+                theme.palette.mode === 'light'
+                  ? '#fff'
+                  : theme.palette.background.default,
               marginLeft: 'auto',
               width: matches ? '100%' : `calc(100% - ${draweWidth}px)`,
             }}

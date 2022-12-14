@@ -1,15 +1,15 @@
 import { createTheme } from '@mui/material';
 import { createContext, useState } from 'react';
-import { theme, colors } from '../styles/theme';
+import { defaultTheme, colors } from '../styles/theme';
 
 const ThemeContext = createContext();
 
 const lightTheme = createTheme({
-  ...theme,
+  ...defaultTheme,
 });
 
 const darkTheme = createTheme({
-  ...theme,
+  ...defaultTheme,
   palette: {
     mode: 'dark',
     primary: {
@@ -23,7 +23,7 @@ const darkTheme = createTheme({
     },
   },
   components: {
-    ...theme.components,
+    ...defaultTheme.components,
     MuiContainer: {
       styleOverrides: {
         root: {

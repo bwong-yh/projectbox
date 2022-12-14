@@ -6,6 +6,7 @@ import {
   IconButton,
   Grid,
   Typography,
+  useTheme,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CustomAvatar from '../../components/CustomAvatar/CustomAvatar';
@@ -17,6 +18,7 @@ const ProjectInfoSection = ({ project, ...props }) => {
   const { user } = useAuthContext();
   const { deleteProject, isPending } = useFirestore('projects');
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const handleDelete = projectId => {
     deleteProject(projectId);
@@ -38,6 +40,7 @@ const ProjectInfoSection = ({ project, ...props }) => {
             variant='outlined'
             label={cateogry}
             sx={{
+              borderColor: theme.palette.mode === 'light' ? 'inherit' : '#fff',
               margin: '0 .25rem .5rem 0',
             }}
           />

@@ -45,9 +45,11 @@ const ProjectCommentInput = ({ project }) => {
               type='submit'
               disabled={isPending}
               sx={{
-                marginTop: '1rem',
                 '&:hover': {
-                  color: theme.palette.primary.dark,
+                  color:
+                    theme.palette.mode === 'light'
+                      ? theme.palette.primary.dark
+                      : '#fff',
                 },
               }}
             >

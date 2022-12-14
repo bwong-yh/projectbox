@@ -1,5 +1,3 @@
-import { createTheme } from '@mui/material';
-
 const colors = {
   gray: {
     100: '#f0f0f0',
@@ -27,7 +25,7 @@ const colors = {
 
 const drawerWidth = 240;
 
-const theme = {
+const defaultTheme = {
   palette: {
     primary: {
       light: colors.gray[100],
@@ -62,4 +60,35 @@ const theme = {
   },
 };
 
-export { theme, colors };
+const darkTheme = {
+  palette: {
+    mode: 'dark',
+    primary: {
+      light: colors.indigo[300],
+      main: colors.indigo[400],
+      dark: colors.indigo[700],
+    },
+    background: {
+      paper: colors.indigo[500],
+      default: colors.indigo[500],
+    },
+  },
+  components: {
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          backgroundColor: colors.indigo[500],
+        },
+      },
+    },
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          color: '#fff',
+        },
+      },
+    },
+  },
+};
+
+export { defaultTheme, colors };

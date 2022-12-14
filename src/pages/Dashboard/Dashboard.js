@@ -5,8 +5,6 @@ import ProjectList from './ProjectList';
 const Dashboard = () => {
   const { documents: projects } = useCollection('projects');
 
-  console.log(projects);
-
   return (
     <Container sx={{ marginTop: '.5rem' }}>
       <Typography variant='h3' marginBottom={2}>

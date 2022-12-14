@@ -10,9 +10,18 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import CustomAvatar from '../../components/CustomAvatar/CustomAvatar';
 import useAuthContext from '../../hooks/useAuthContext';
+import useFirestore from '../../hooks/useFirestore';
+import { useNavigate } from 'react-router-dom';
 
 const ProjectInfoSection = ({ project, ...props }) => {
   const { user } = useAuthContext();
+  const { deleteProject, isPending } = useFirestore('projects');
+  const navigate = useNavigate();
+
+  const handleDelete = projectId => {
+    deleteProject(projectId);
+    navigate('/');
+  };
 
   return (
     <Grid item {...props}>
@@ -56,7 +65,10 @@ const ProjectInfoSection = ({ project, ...props }) => {
           {project.createdBy.uid === user.uid ? (
             <>
               <Divider variant='middle' sx={{ margin: '1rem' }} />
-              <IconButton>
+              <IconButton
+                onClick={() => handleDelete(project.id)}
+                disabled={isPending}
+              >
                 <DeleteIcon />
               </IconButton>
             </>

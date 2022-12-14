@@ -2,6 +2,7 @@ import {
   addDoc,
   arrayUnion,
   collection,
+  deleteDoc,
   doc,
   updateDoc,
 } from 'firebase/firestore';
@@ -62,7 +63,22 @@ const useFirestore = coll => {
     }
   };
 
-  return { isPending, error, addProject, updateProject };
+  const deleteProject = async docId => {
+    setError(null);
+    setIsPending(true);
+
+    try {
+      await deleteDoc(doc(collectionRef, docId));
+
+      setIsPending(false);
+    } catch (error) {
+      console.log(error);
+      setError(error.message);
+      setIsPending(false);
+    }
+  };
+
+  return { isPending, error, addProject, updateProject, deleteProject };
 };
 
 export default useFirestore;

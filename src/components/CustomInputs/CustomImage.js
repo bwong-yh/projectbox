@@ -8,8 +8,6 @@ const CustomImage = ({ ...props }) => {
   const { value } = meta;
   const { setValue } = helper;
 
-  console.log(field);
-
   useEffect(() => {
     value ? setPreview(URL.createObjectURL(value)) : setPreview('');
   }, [value]);
@@ -33,7 +31,7 @@ const CustomImage = ({ ...props }) => {
           />
         </Button>
         <FormHelperText>
-          {meta.touched && meta.error ? meta.error : 'Upload a thumbnail'}
+          {meta.touched && meta.error ? meta.error : 'Upload an avatar'}
         </FormHelperText>
         {/* preview box */}
         <Box

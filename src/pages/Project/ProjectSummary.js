@@ -1,6 +1,5 @@
 import { Grid, Typography } from '@mui/material';
-import ProjectCommentBox from './ProjectComment';
-
+import ProjectCommentInput from './ProjectCommentInput';
 import ProjectInfo from './ProjectInfo';
 
 const ProjectSummary = ({ project }) => {
@@ -11,7 +10,7 @@ const ProjectSummary = ({ project }) => {
       </Typography>
       <Grid container spacing={4}>
         <ProjectInfo project={project} md={6} sx={{ width: '100%' }} />
-        <ProjectCommentBox project={project} md={6} sx={{ width: '100%' }} />
+        <ProjectCommentInput project={project} md={6} sx={{ width: '100%' }} />
       </Grid>
     </>
   );

@@ -67,7 +67,7 @@ const Signup = () => {
               >
                 {isPending ? 'Signing up' : 'Sign up'}
               </Button>
-              {error ? <FormHelperText error>{error}</FormHelperText> : null}
+              {error && <FormHelperText error>{error}</FormHelperText>}
             </Form>
           )}
         </Formik>

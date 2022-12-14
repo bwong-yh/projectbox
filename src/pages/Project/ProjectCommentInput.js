@@ -5,7 +5,7 @@ import useAuthContext from '../../hooks/useAuthContext';
 import useFirestore from '../../hooks/useFirestore';
 import CommentSchema from './ProjectCommentSchema';
 
-const ProjectCommentBox = ({ project, ...props }) => {
+const ProjectCommentInput = ({ project, ...props }) => {
   const theme = useTheme();
   const { user } = useAuthContext();
   const { updateProject, isPending, error } = useFirestore('projects');
@@ -13,8 +13,10 @@ const ProjectCommentBox = ({ project, ...props }) => {
   const onSubmit = (values, actions) => {
     updateProject(project.id, {
       content: values.comment,
-      displayName: user.displayName,
-      phtotURL: user.photoURL,
+      user: {
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+      },
     });
 
     actions.resetForm();
@@ -59,4 +61,4 @@ const ProjectCommentBox = ({ project, ...props }) => {
   );
 };
 
-export default ProjectCommentBox;
+export default ProjectCommentInput;

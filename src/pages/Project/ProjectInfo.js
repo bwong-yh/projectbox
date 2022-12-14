@@ -10,6 +10,7 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import CustomAvatar from '../../components/CustomAvatar/CustomAvatar';
 import useAuthContext from '../../hooks/useAuthContext';
+import ProjectComments from './ProjectComments';
 
 const ProjectInfo = ({ project, ...props }) => {
   const { user } = useAuthContext();
@@ -34,7 +35,7 @@ const ProjectInfo = ({ project, ...props }) => {
           />
         ))}
         <Typography variant='bode2' display='block'>
-          Project due by {project.dueDate}
+          Project due by {project.dueDate.toDate().toDateString()}
         </Typography>
         <Typography marginTop={2.5} marginBottom={2.5} fontSize='1.5rem'>
           {project.details}
@@ -58,6 +59,8 @@ const ProjectInfo = ({ project, ...props }) => {
           ) : null}
         </Box>
       </Box>
+
+      <ProjectComments comments={project.comments} />
     </Grid>
   );
 };

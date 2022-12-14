@@ -16,6 +16,7 @@ import useFirestore from '../../hooks/useFirestore';
 import formStyle from '../../styles/form';
 import categoryOptions from './CategoryOptions';
 import CreateSchema from './CreateSchema';
+import { timestamp } from '../../firebase/config';
 
 const Create = () => {
   const theme = useTheme();
@@ -26,8 +27,12 @@ const Create = () => {
   const navigate = useNavigate();
 
   const onSubmit = (values, actions) => {
+    // convert js date object into firebase timestamp
+    const dueDate = timestamp.fromDate(new Date(values.dueDate));
+
     addProject({
       ...values,
+      dueDate,
       createdBy: {
         displayName: user.displayName,
         uid: user.uid,
@@ -62,7 +67,12 @@ const Create = () => {
           {props => (
             <Form>
               <CustomInput label='Project Name' name='name' />
-              <CustomInput label='Project Details' name='details' />
+              <CustomInput
+                label='Project Details'
+                name='details'
+                multiline
+                minRows={2}
+              />
               <CustomInput
                 label='Due Date'
                 name='dueDate'

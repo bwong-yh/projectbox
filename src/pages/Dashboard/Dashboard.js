@@ -5,13 +5,19 @@ import ProjectList from './ProjectList';
 const Dashboard = () => {
   const { documents: projects } = useCollection('projects');
 
+  console.log(projects);
+
   return (
     <Container sx={{ marginTop: '.5rem' }}>
       <Typography variant='h3' marginBottom={2}>
         Dashboard
       </Typography>
 
-      <ProjectList projects={projects} />
+      {!projects.length ? (
+        <Typography variant='h4'>No projects</Typography>
+      ) : (
+        <ProjectList projects={projects} />
+      )}
     </Container>
   );
 };

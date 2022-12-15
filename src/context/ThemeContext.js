@@ -10,8 +10,14 @@ const darkTheme = createTheme({ ...darkThemeStyle });
 const ThemeContextProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(true);
 
+  const changeMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <ThemeContext.Provider value={!darkMode ? lightTheme : darkTheme}>
+    <ThemeContext.Provider
+      value={{ theme: !darkMode ? lightTheme : darkTheme, changeMode }}
+    >
       {children}
     </ThemeContext.Provider>
   );

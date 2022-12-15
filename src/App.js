@@ -1,6 +1,5 @@
 import { Box, CssBaseline, ThemeProvider } from '@mui/material';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import useSidebar from './hooks/useSidebar';
 import Layout from './components/Layout/Layout';
 import Navbar from './components/Navbar';
 import Create from './pages/Create/Create';
@@ -11,11 +10,12 @@ import useAuthContext from './hooks/useAuthContext';
 import Project from './pages/Project/Project';
 import { useContext } from 'react';
 import { ThemeContext } from './context/ThemeContext';
+import { SidebarContext } from './context/SidebarContext';
 
 function App() {
-  const { handleSidebar } = useSidebar();
+  const { handleSidebar } = useContext(SidebarContext);
   const { user, authReady } = useAuthContext();
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <>

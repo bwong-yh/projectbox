@@ -1,11 +1,12 @@
 import { Drawer, useMediaQuery, Toolbar, useTheme } from '@mui/material';
-import useSidebar from '../../hooks/useSidebar';
+import { useContext } from 'react';
+import { SidebarContext } from '../../context/SidebarContext';
 import SidebarContent from './SidebarContent';
 
 const Sidebar = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
-  const { sidebarOpen } = useSidebar();
+  const { sidebarOpen } = useContext(SidebarContext);
 
   return (
     <Drawer

@@ -4,17 +4,18 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import MenuIcon from '@mui/icons-material/Menu';
-import useSidebar from '../../hooks/useSidebar';
 import NavbarNavLink from './NavbavNavLink';
 import { NavLink, useNavigate } from 'react-router-dom';
 import useAuthContext from '../../hooks/useAuthContext';
 import useLogout from '../../hooks/useLogout';
 import NavbarBrand from './NavbarBrand';
+import { useContext } from 'react';
+import { SidebarContext } from '../../context/SidebarContext';
 
 const NavbarMobile = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
-  const { handleSidebar } = useSidebar();
+  const { handleSidebar } = useContext(SidebarContext);
   const { user } = useAuthContext();
   const logout = useLogout();
   const navigate = useNavigate();

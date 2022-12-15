@@ -31,6 +31,7 @@ const ProjectInfoSection = ({ project, ...props }) => {
         sx={{
           borderRadius: '4px',
           boxShadow: '2px 3px 14px -3px rgba(0, 0, 0, 0.25)',
+          marginBottom: '.75rem',
           padding: '1rem',
         }}
       >

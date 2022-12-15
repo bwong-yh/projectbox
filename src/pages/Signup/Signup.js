@@ -1,11 +1,9 @@
 import {
   Box,
-  Button,
   Container,
   FormHelperText,
   Toolbar,
   Typography,
-  useTheme,
 } from '@mui/material';
 import { Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
@@ -14,9 +12,9 @@ import CustomInput from '../../components/CustomInputs/CustomInput';
 import useSignup from '../../hooks/useSignup';
 import formStyle from '../../styles/form';
 import SignupSchema from './SignupSchema';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
 const Signup = () => {
-  const theme = useTheme();
   const { signup, isPending, error } = useSignup();
   const navigate = useNavigate();
 
@@ -55,21 +53,9 @@ const Signup = () => {
               {/* image for avatar */}
               <CustomImage name='file' />
 
-              <Button
-                variant='outlined'
-                type='submit'
-                disabled={isPending}
-                sx={{
-                  '&:hover': {
-                    color:
-                      theme.palette.mode === 'light'
-                        ? theme.palette.primary.dark
-                        : '#fff',
-                  },
-                }}
-              >
+              <CustomButton type='submit' disabled={isPending}>
                 {isPending ? 'Signing up' : 'Sign up'}
-              </Button>
+              </CustomButton>
               {error && <FormHelperText error>{error}</FormHelperText>}
             </Form>
           )}

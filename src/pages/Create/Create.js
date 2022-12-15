@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Container,
-  FormHelperText,
-  Typography,
-  useTheme,
-} from '@mui/material';
+import { Box, Container, FormHelperText, Typography } from '@mui/material';
 import { Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import CustomInput from '../../components/CustomInputs/CustomInput';
@@ -17,9 +10,9 @@ import formStyle from '../../styles/form';
 import categoryOptions from './CategoryOptions';
 import CreateSchema from './CreateSchema';
 import { timestamp } from '../../firebase/config';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
 const Create = () => {
-  const theme = useTheme();
   // useFirestore is a hook to manage projects to firebase
   const { addProject, isPending, error } = useFirestore('projects');
   const { user } = useAuthContext();
@@ -95,21 +88,9 @@ const Create = () => {
                 }))}
               />
 
-              <Button
-                variant='outlined'
-                type='submit'
-                disabled={isPending}
-                sx={{
-                  '&:hover': {
-                    color:
-                      theme.palette.mode === 'light'
-                        ? theme.palette.primary.dark
-                        : '#fff',
-                  },
-                }}
-              >
+              <CustomButton type='submit' disabled={isPending}>
                 {isPending ? 'Creating' : 'Create'}
-              </Button>
+              </CustomButton>
               {error ? <FormHelperText error>{error}</FormHelperText> : null}
             </Form>
           )}

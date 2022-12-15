@@ -1,12 +1,12 @@
-import { Box, Button, FormHelperText, useTheme } from '@mui/material';
+import { Box, FormHelperText } from '@mui/material';
 import { Form, Formik } from 'formik';
 import CustomInput from '../../components/CustomInputs/CustomInput';
 import useAuthContext from '../../hooks/useAuthContext';
 import useFirestore from '../../hooks/useFirestore';
 import CommentSchema from './ProjectCommentSchema';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
 const ProjectCommentInput = ({ project }) => {
-  const theme = useTheme();
   const { user } = useAuthContext();
   const { updateProject, isPending, error } = useFirestore('projects');
 
@@ -34,28 +34,19 @@ const ProjectCommentInput = ({ project }) => {
         {props => (
           <Form>
             <CustomInput
-              label='post a comment'
+              label='Post a comment'
               name='comment'
               multiline
               minRows={4}
             />
 
-            <Button
-              variant='outlined'
+            <CustomButton
               type='submit'
               disabled={isPending}
-              sx={{
-                marginTop: '1rem',
-                '&:hover': {
-                  color:
-                    theme.palette.mode === 'light'
-                      ? theme.palette.primary.dark
-                      : '#fff',
-                },
-              }}
+              sx={{ marginTop: '1.5rem' }}
             >
               {isPending ? 'Posting' : 'Post'}
-            </Button>
+            </CustomButton>
             {error && <FormHelperText error>{error}</FormHelperText>}
           </Form>
         )}

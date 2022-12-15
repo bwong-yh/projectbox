@@ -1,11 +1,9 @@
 import {
   Box,
-  Button,
   Container,
   FormHelperText,
   Toolbar,
   Typography,
-  useTheme,
 } from '@mui/material';
 import formStyle from '../../styles/form';
 import { Form, Formik } from 'formik';
@@ -13,9 +11,9 @@ import CustomInput from '../../components/CustomInputs/CustomInput';
 import LoginSchema from './LoginSchema';
 import useLogin from '../../hooks/useLogin';
 import { useNavigate } from 'react-router-dom';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
 const Login = () => {
-  const theme = useTheme();
   const { login, isPending, error } = useLogin();
   const navigate = useNavigate();
 
@@ -45,21 +43,9 @@ const Login = () => {
               <CustomInput label='Email' name='email' />
               <CustomInput label='Password' name='password' type='password' />
 
-              <Button
-                variant='outlined'
-                type='submit'
-                disabled={isPending}
-                sx={{
-                  '&:hover': {
-                    color:
-                      theme.palette.mode === 'light'
-                        ? theme.palette.primary.dark
-                        : '#fff',
-                  },
-                }}
-              >
+              <CustomButton type='submit' disabled={isPending}>
                 {isPending ? 'Logging in' : 'Login'}
-              </Button>
+              </CustomButton>
               {error && <FormHelperText error>{error}</FormHelperText>}
             </Form>
           )}

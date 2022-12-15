@@ -3,8 +3,10 @@ import CustomAvatar from '../../components/CustomAvatar/CustomAvatar';
 
 const ProjectComments = ({ comments }) => {
   return (
-    <Box marginTop='1rem'>
-      <Typography variant='h6'>Comments</Typography>
+    <Box marginTop='2rem'>
+      <Typography variant='h6' marginBottom='.75rem'>
+        Comments
+      </Typography>
 
       {!comments.length ? (
         <Typography>No comments</Typography>

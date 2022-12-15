@@ -61,7 +61,10 @@ const Signup = () => {
                 disabled={isPending}
                 sx={{
                   '&:hover': {
-                    color: theme.palette.primary.dark,
+                    color:
+                      theme.palette.mode === 'light'
+                        ? theme.palette.primary.dark
+                        : '#fff',
                   },
                 }}
               >

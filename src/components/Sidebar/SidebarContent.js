@@ -6,6 +6,7 @@ import {
   ListItem,
   ListItemText,
   Typography,
+  useTheme,
 } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import useAuthContext from '../../hooks/useAuthContext';
@@ -16,6 +17,7 @@ import useCollection from '../../hooks/useCollection';
 const SidebarContent = () => {
   const { user } = useAuthContext();
   const { documents: users } = useCollection('users');
+  const theme = useTheme();
 
   // sort users display name before displaying
   users.sort((a, b) => {
@@ -41,7 +43,17 @@ const SidebarContent = () => {
 
       <Divider variant='middle' />
 
-      <List sx={{ margin: '0.5rem 0' }}>
+      <List
+        sx={{
+          margin: '0.5rem 0',
+          '& a:hover div, & a.active div': {
+            backgroundColor:
+              theme.palette.mode === 'light'
+                ? '#fff'
+                : theme.palette.background.default,
+          },
+        }}
+      >
         <SidebarNavLink component={NavLink} to='/'>
           <ListItemText primary='Dashboard' />
         </SidebarNavLink>

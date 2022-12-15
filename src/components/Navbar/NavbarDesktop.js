@@ -5,6 +5,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import useAuthContext from '../../hooks/useAuthContext';
 import useLogout from '../../hooks/useLogout';
 import NavbarBrand from './NavbarBrand';
+import ModeSwitch from './ModeSwitch';
 
 const NavbarDesktop = () => {
   const { user } = useAuthContext();
@@ -29,6 +30,8 @@ const NavbarDesktop = () => {
       </Stack>
 
       <Box>
+        <ModeSwitch />
+
         {user ? (
           <NavbarNavLink component={NavLink} onClick={handleLogout}>
             Logout

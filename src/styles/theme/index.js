@@ -25,14 +25,7 @@ const colors = {
 
 const drawerWidth = 240;
 
-const defaultTheme = {
-  palette: {
-    primary: {
-      light: colors.gray[100],
-      main: colors.gray[300],
-      dark: colors.gray[700],
-    },
-  },
+const defaultStyle = {
   components: {
     MuiButton: {
       defaultProps: {
@@ -60,7 +53,18 @@ const defaultTheme = {
   },
 };
 
-const darkTheme = {
+const lightThemeStyle = {
+  palette: {
+    primary: {
+      light: colors.gray[100],
+      main: colors.gray[300],
+      dark: colors.gray[700],
+    },
+  },
+  ...defaultStyle,
+};
+
+const darkThemeStyle = {
   palette: {
     mode: 'dark',
     primary: {
@@ -74,6 +78,7 @@ const darkTheme = {
     },
   },
   components: {
+    ...defaultStyle.components,
     MuiContainer: {
       styleOverrides: {
         root: {
@@ -91,4 +96,4 @@ const darkTheme = {
   },
 };
 
-export { defaultTheme, colors };
+export { lightThemeStyle, darkThemeStyle };

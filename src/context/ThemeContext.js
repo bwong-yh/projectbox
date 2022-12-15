@@ -16,7 +16,10 @@ const ThemeContextProvider = ({ children }) => {
 
   return (
     <ThemeContext.Provider
-      value={{ theme: !darkMode ? lightTheme : darkTheme, changeMode }}
+      value={{
+        theme: !darkMode ? lightTheme : darkTheme,
+        changeMode: changeMode,
+      }}
     >
       {children}
     </ThemeContext.Provider>

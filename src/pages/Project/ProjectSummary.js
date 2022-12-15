@@ -5,7 +5,7 @@ import ProjectInfo from './ProjectInfoSection';
 const ProjectSummary = ({ project }) => {
   return (
     <>
-      <Typography variant='h3' marginBottom={2}>
+      <Typography variant='h3' sx={{ margin: '1.5rem 0' }}>
         {project.name}
       </Typography>
       <Grid container spacing={4}>

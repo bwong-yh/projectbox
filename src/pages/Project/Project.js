@@ -8,7 +8,7 @@ const Project = () => {
   const { document, error } = useDocument('projects', id);
 
   return (
-    <Container sx={{ margin: '.5rem 0 1.5rem' }}>
+    <Container sx={{ margin: '1.5rem auto' }}>
       {error && (
         <Typography variant='h3' sx={{ margin: '1rem 0' }}>
           {error}

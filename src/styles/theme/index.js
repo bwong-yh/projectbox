@@ -72,11 +72,15 @@ const darkThemeStyle = {
       main: colors.indigo[400],
       dark: colors.indigo[700],
     },
+    error: {
+      main: '#F96666',
+    },
     background: {
       paper: colors.indigo[500],
       default: colors.indigo[500],
     },
   },
+  ...defaultStyle,
   components: {
     ...defaultStyle.components,
     MuiContainer: {

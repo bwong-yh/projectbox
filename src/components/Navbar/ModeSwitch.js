@@ -1,7 +1,7 @@
-import { IconButton, useTheme } from '@mui/material';
+import { IconButton } from '@mui/material';
 import ModeNightIcon from '@mui/icons-material/ModeNight';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 
 const ModeSwitch = () => {

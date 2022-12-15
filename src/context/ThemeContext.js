@@ -8,10 +8,14 @@ const lightTheme = createTheme({ ...lightThemeStyle });
 const darkTheme = createTheme({ ...darkThemeStyle });
 
 const ThemeContextProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(
+    JSON.parse(localStorage.getItem('darkMode')) || false
+  );
 
   const changeMode = () => {
     setDarkMode(!darkMode);
+
+    localStorage.setItem('darkMode', !darkMode);
   };
 
   return (

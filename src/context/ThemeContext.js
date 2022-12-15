@@ -14,7 +14,6 @@ const ThemeContextProvider = ({ children }) => {
 
   const changeMode = () => {
     setDarkMode(!darkMode);
-
     localStorage.setItem('darkMode', !darkMode);
   };
 

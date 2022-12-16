@@ -46,9 +46,17 @@ const ProjectInfoSection = ({ project, ...props }) => {
             }}
           />
         ))}
-        <Typography variant='bode2' display='block'>
-          Project due by {project.dueDate.toDate().toDateString()}
-        </Typography>
+        <Box marginTop='.25rem'>
+          <Typography variant='bode2' display='block'>
+            Created by{' '}
+            <Typography variant='span' fontWeight='700'>
+              {project.createdBy.displayName}{' '}
+            </Typography>
+          </Typography>
+          <Typography variant='bode2' display='block'>
+            Project due by {project.dueDate.toDate().toDateString()}
+          </Typography>
+        </Box>
         <Typography
           marginTop={2.5}
           marginBottom={2.5}

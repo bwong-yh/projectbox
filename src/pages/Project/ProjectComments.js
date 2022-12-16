@@ -22,15 +22,21 @@ const ProjectComments = ({ comments }) => {
                 '&:not(:last-of-type)': { marginBottom: '1rem' },
               }}
             >
-              <Box display='flex' alignItems='center' marginBottom='.5rem'>
-                <CustomAvatar user={comment.user} />
-                <Typography marginLeft='.5rem' fontWeight={700}>
-                  {comment.user.displayName}
+              <Box
+                display='flex'
+                justifyContent='space-between'
+                marginBottom='1.5rem'
+              >
+                <Box display='flex' alignItems='center'>
+                  <CustomAvatar user={comment.user} />
+                  <Typography marginLeft='.5rem' fontWeight={700}>
+                    {comment.user.displayName}
+                  </Typography>
+                </Box>
+                <Typography variant='body2' fontSize='1rem'>
+                  {comment.createdAt.toDate().toDateString()}
                 </Typography>
               </Box>
-              <Typography variant='body2' marginBottom='1rem'>
-                {comment.createdAt.toDate().toDateString()}
-              </Typography>
               <Typography style={{ whiteSpace: 'pre-line' }}>
                 {comment.content}
               </Typography>

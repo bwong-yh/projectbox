@@ -3,7 +3,7 @@ import useCollection from '../../hooks/useCollection';
 import ProjectList from './ProjectList';
 
 const Dashboard = () => {
-  const { documents: projects } = useCollection('projects');
+  const { documents: projects } = useCollection('projects', ['dueDate', 'asc']);
 
   return (
     <Container sx={{ marginTop: '.5rem' }}>

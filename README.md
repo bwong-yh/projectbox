@@ -10,7 +10,7 @@ This application is built using React and Material UI for the user interface, wh
 
 PROJECTBOX is now live for anyone that wants to play around with it
 
-Click [here](projectbox-175a1.web.app) to see :)
+Click [here](https://projectbox-175a1.firebaseapp.com/login) to see :)
 
 ## Special Features
 

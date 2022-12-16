@@ -27,3 +27,14 @@ Another live update is user status, whenever user is logged in, a green badge wi
 PROJECTBOX's layout is designed to fit a wide range of devices. In addition, user is capable of switich light and dark mode based on their preferences.
 
 ![live-usage](./docs/mobile-and-mode-recording.gif)
+
+## Usage
+
+- run `git clone git@github.com:bwong-yh/projectbox.git`
+- navigate to `projectbox` directory
+- run `npm install` to install dependencies
+- run `npm run start` to start Webpack Development Server and browser should launch automatically
+  - you can always enter http://localhost:8000 in the address bar to launch the app
+- log in using default email and password
+  - `billy@dev.com` and `test1234`
+- OR sign up using any email and password

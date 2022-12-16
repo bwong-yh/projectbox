@@ -9,8 +9,6 @@ const useCollection = (coll, _orderCollection) => {
   // use useRef to ensure infinite loop doesn't happen
   const orderCollection = useRef(_orderCollection).current;
 
-  console.log(orderCollection);
-
   useEffect(() => {
     let collectionRef = collection(db, coll);
 

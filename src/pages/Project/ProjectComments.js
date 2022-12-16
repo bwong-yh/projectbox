@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import CustomAvatar from '../../components/CustomAvatar/CustomAvatar';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 const ProjectComments = ({ comments }) => {
   return (
@@ -25,6 +26,7 @@ const ProjectComments = ({ comments }) => {
               <Box
                 display='flex'
                 justifyContent='space-between'
+                alignItems='center'
                 marginBottom='1.5rem'
               >
                 <Box display='flex' alignItems='center'>
@@ -34,7 +36,9 @@ const ProjectComments = ({ comments }) => {
                   </Typography>
                 </Box>
                 <Typography variant='body2' fontSize='1rem'>
-                  {comment.createdAt.toDate().toDateString()}
+                  {formatDistanceToNow(comment.createdAt.toDate(), {
+                    addSuffix: true,
+                  })}
                 </Typography>
               </Box>
               <Typography style={{ whiteSpace: 'pre-line' }}>

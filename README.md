@@ -21,3 +21,9 @@ All projects include a comment section for registered users to enter messages, n
 ![live-usage](./docs/live-update-recording.gif)
 
 Another live update is user status, whenever user is logged in, a green badge will appear beside their avatar.
+
+### Responive Design & Modes
+
+PROJECTBOX's layout is designed to fit a wide range of devices. In addition, user is capable of switich light and dark mode based on their preferences.
+
+![live-usage](./docs/mobile-and-mode-recording.gif)

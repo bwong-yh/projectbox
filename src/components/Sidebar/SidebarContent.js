@@ -31,10 +31,12 @@ const SidebarContent = () => {
         <CustomAvatar
           user={user}
           sx={{
-            fontSize: '4rem',
             height: '75%',
             margin: '.5rem auto',
             width: '75%',
+            '& p': {
+              fontSize: '4rem',
+            },
           }}
         />
       </Box>

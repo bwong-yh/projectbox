@@ -13,3 +13,11 @@ All forms are built using [Formik](https://formik.org/) and [YUP](https://github
 ![live-usage](./docs/signup-recording.gif)
 
 <em>To update a file for avatar is optional, however if user decided to update a file, file size cannot exceed 100kb. (Error message will be displayed and sign up is prohibited if file size is greater than 100kb.)</em>
+
+### Live Update
+
+All projects include a comment section for registered users to enter messages, new messages will be rendered automatically without user reloading the page.
+
+![live-usage](./docs/live-update-recording.gif)
+
+Another live update is user status, whenever user is logged in, a green badge will appear beside their avatar.

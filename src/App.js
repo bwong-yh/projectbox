@@ -1,7 +1,7 @@
 import { Box, CssBaseline, ThemeProvider } from '@mui/material';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import Create from './pages/Create/Create';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Login from './pages/Login/Login';

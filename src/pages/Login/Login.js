@@ -5,7 +5,7 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
-import formStyle from '../../styles/form';
+import formStyle from '../../styles/form/form';
 import { Form, Formik } from 'formik';
 import CustomInput from '../../components/CustomInputs/CustomInput';
 import LoginSchema from './LoginSchema';

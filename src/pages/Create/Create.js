@@ -6,7 +6,7 @@ import CustomSelect from '../../components/CustomInputs/CustomSelect';
 import useAuthContext from '../../hooks/useAuthContext';
 import useCollection from '../../hooks/useCollection';
 import useFirestore from '../../hooks/useFirestore';
-import formStyle from '../../styles/form';
+import formStyle from '../../styles/form/form';
 import categoryOptions from './CategoryOptions';
 import CreateSchema from './CreateSchema';
 import { timestamp } from '../../firebase/config';

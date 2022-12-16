@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import CustomImage from '../../components/CustomInputs/CustomImage';
 import CustomInput from '../../components/CustomInputs/CustomInput';
 import useSignup from '../../hooks/useSignup';
-import formStyle from '../../styles/form';
+import formStyle from '../../styles/form/form';
 import SignupSchema from './SignupSchema';
 import CustomButton from '../../components/CustomButton/CustomButton';
 

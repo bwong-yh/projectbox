@@ -18,9 +18,9 @@ const SidebarContent = () => {
   const { documents: users } = useCollection('users');
 
   // sort users display name before displaying
-  users.sort((a, b) => {
-    return a.displayName.toUpperCase().localeCompare(b.displayName.toUpperCase);
-  });
+  const sortedUsers = users.sort((a, b) =>
+    a.displayName.toUpperCase().localeCompare(b.displayName.toUpperCase)
+  );
 
   return (
     <>
@@ -59,7 +59,7 @@ const SidebarContent = () => {
       <Divider variant='middle' />
 
       <List sx={{ margin: '0.5rem 0' }}>
-        {users.map(user => (
+        {sortedUsers.map(user => (
           <ListItem key={user.id}>
             <Badge
               variant='dot'

@@ -4,6 +4,14 @@ PROJECTBOX is a project management application that allows registered users to v
 
 This application is built using React and Material UI for the user interface, while the backend (including authentication) part is managed by Firebase.
 
+## UPDATES!
+
+### Dec 16, 2022
+
+PROJECTBOX is now live for anyone that wants to play around with it
+
+Click [here](projectbox-175a1.web.app) to see :)
+
 ## Special Features
 
 ### Forms
